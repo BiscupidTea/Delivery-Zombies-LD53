@@ -14,7 +14,6 @@ public class EnemyMovement : MonoBehaviour
 
     [Header("Basic Info")]
     [SerializeField] private float speed;
-    [SerializeField] private float health;
 
     private float angle;
     private float distancePlayerEnemy;
@@ -38,16 +37,8 @@ public class EnemyMovement : MonoBehaviour
         {
             Enemy.transform.rotation = Quaternion.Euler(Vector3.forward * angle);
         }
-
-        if (health <= 0) 
-        { 
-            Destroy(Enemy);
-        }
     }
 
-    /// <summary>
-    /// Enemy 
-    /// </summary>
     private void DetectPlayer()
     {
         distancePlayerEnemy = Vector2.Distance(Enemy.transform.position, Player.transform.position);
