@@ -93,8 +93,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 25
+  m_fontSizeBase: 25
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -146,6 +146,7 @@ GameObject:
   - component: {fileID: 7158004095222145723}
   - component: {fileID: 4203689358522742622}
   - component: {fileID: 4748944368704427267}
+  - component: {fileID: 7940482599846282252}
   m_Layer: 5
   m_Name: Item Template
   m_TagString: Untagged
@@ -215,6 +216,21 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &7940482599846282252
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2754798116727274364}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0861e8b2ea6bd349b318137a865ca17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  titleText: {fileID: 1650940459591168327}
+  descriptionText: {fileID: 9152934876267100826}
+  costText: {fileID: 3543389438511340323}
 --- !u!1 &3965967012494442646
 GameObject:
   m_ObjectHideFlags: 0
