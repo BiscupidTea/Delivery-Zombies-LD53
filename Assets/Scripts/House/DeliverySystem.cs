@@ -15,6 +15,8 @@ public class DeliverySystem : MonoBehaviour
 
     [SerializeField] private CoinManager cM;
 
+    [SerializeField] private PacksManager pM;
+
     [Header("House Cold Down")]
 
     [SerializeField] private float maxHouseTimer = 5.0f;
@@ -40,6 +42,8 @@ public class DeliverySystem : MonoBehaviour
             warningImage.SetActive(false);
 
             cM.GetMoney(10);
+
+            pM.RemovePackage(1);
 
             Debug.Log("Paquete Entregado");
         }

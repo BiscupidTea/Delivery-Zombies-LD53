@@ -274,6 +274,7 @@ MonoBehaviour:
   house: {fileID: 40518960}
   warningImage: {fileID: 304118785}
   cM: {fileID: 1912149024}
+  pM: {fileID: 1912149025}
   maxHouseTimer: 5
 --- !u!1 &304118785
 GameObject:
@@ -608,7 +609,6 @@ MonoBehaviour:
   detectionRadius: 3
   followRadius: 5
   speed: 2
-  health: 5
 --- !u!212 &869451739
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -727,6 +727,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Enemy: {fileID: 869451737}
   Player: {fileID: 1912149018}
+  playerHealth: {fileID: 0}
   damage: 5
   attackRadius: 0.8
   attackDelayTimer: 1
@@ -894,6 +895,7 @@ GameObject:
   - component: {fileID: 1912149019}
   - component: {fileID: 1912149021}
   - component: {fileID: 1912149022}
+  - component: {fileID: 1912149025}
   - component: {fileID: 1912149024}
   - component: {fileID: 1912149023}
   m_Layer: 0
@@ -1034,3 +1036,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   actualsCoins: 10
+--- !u!114 &1912149025
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1912149018}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66aae02ff06fce746a508abd87249c00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Numberofpacks: 5
