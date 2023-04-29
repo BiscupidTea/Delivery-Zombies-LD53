@@ -883,6 +883,37 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1897352623
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1897352624}
+  m_Layer: 0
+  m_Name: fire pivot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1897352624
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1897352623}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.413, z: 0}
+  m_LocalScale: {x: 0.33333334, y: 0.33333334, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1912149020}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1912149018
 GameObject:
   m_ObjectHideFlags: 0
@@ -898,6 +929,7 @@ GameObject:
   - component: {fileID: 1912149025}
   - component: {fileID: 1912149024}
   - component: {fileID: 1912149026}
+  - component: {fileID: 1912149027}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -968,7 +1000,8 @@ Transform:
   m_LocalPosition: {x: 6.78, y: 0.9508463, z: 0}
   m_LocalScale: {x: 3, y: 3, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1897352624}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -985,9 +1018,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.001399835, y: 0}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.30821672
 --- !u!50 &1912149022
 Rigidbody2D:
   serializedVersion: 4
@@ -1050,3 +1083,22 @@ MonoBehaviour:
   moveSpeed: 5
   rb: {fileID: 1912149022}
   cam: {fileID: 963194227}
+--- !u!114 &1912149027
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1912149018}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00c582d7181c0a147afb6ba240ae558d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FirePoint: {fileID: 1897352624}
+  Bullet: {fileID: 7009142233482257301, guid: 606da01db05ce434e972cf780cb23d60, type: 3}
+  damage: 1
+  reloadTimer: 3
+  bulletForce: 20
+  attackDelayTimer: 0.2
+  magazineCapacity: 7
