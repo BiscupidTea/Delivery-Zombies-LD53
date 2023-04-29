@@ -4,22 +4,22 @@ using UnityEngine;
 
 public class PacksManager : MonoBehaviour
 {
-    public int Numberofpacks = 5;
+    public int actualPacks = 5;
 
     public int GetPackage(int packs)
     {
-        Numberofpacks += packs;
-        return Numberofpacks;
+        actualPacks += packs;
+        return actualPacks;
     }
 
     public int RemovePackage(int packs)
     {
-        Numberofpacks -= packs;
-        return Numberofpacks;
+        actualPacks -= packs;
+        return actualPacks;
     }
 
     public void ResetPackage()
     {
-        Numberofpacks = 0;
+        actualPacks = 0;
     }
 }
