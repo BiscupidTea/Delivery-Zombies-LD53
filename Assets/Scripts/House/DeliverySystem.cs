@@ -13,6 +13,8 @@ public class DeliverySystem : MonoBehaviour
 
     [SerializeField] private GameObject warningImage;
 
+    [SerializeField] private CoinManager cM;
+
     [Header("House Cold Down")]
 
     [SerializeField] private float maxHouseTimer = 5.0f;
@@ -36,6 +38,8 @@ public class DeliverySystem : MonoBehaviour
             starColdDown = true;
 
             warningImage.SetActive(false);
+
+            cM.GetMoney(10);
 
             Debug.Log("Paquete Entregado");
         }
