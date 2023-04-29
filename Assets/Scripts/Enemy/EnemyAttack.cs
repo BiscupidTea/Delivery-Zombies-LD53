@@ -7,6 +7,7 @@ public class EnemyAttack : MonoBehaviour
     [Header("Entity")]
     [SerializeField] private GameObject Enemy;
     [SerializeField] private GameObject Player;
+    [SerializeField] private PlayerHealth playerHealth;
 
     [Header("Basic Info")]
     [SerializeField] private float damage;
@@ -36,7 +37,7 @@ public class EnemyAttack : MonoBehaviour
     {
         if (attackTimer >= attackDelayTimer)
         {
-            //ingresar restar vida al player
+            playerHealth.PlayerTakeDamage(damage);
             Debug.Log("attack");
             attackTimer = 0;
         }
