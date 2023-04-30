@@ -11,22 +11,22 @@ public class PlayerShootin : MonoBehaviour
 
     [Header("Basic Info")]
     [SerializeField] private float damage;
-    [SerializeField] private float reloadTimer;
+    //[SerializeField] private float reloadTimer;
     [SerializeField] private float bulletForce;
-    
+
     [Header("Timers")]
     [SerializeField] private float attackDelayTimer;
-    [SerializeField] private int magazineCapacity;
+    //[SerializeField] private int magazineCapacity;
 
-    private int magazine;
+    //private int magazine;
     private float attackTimer;
     private float actualRelodTimer;
 
     // Start is called before the first frame update
     void Start()
     {
-        magazine = magazineCapacity;
-        actualRelodTimer = reloadTimer;
+        //  magazine = magazineCapacity;
+        //actualRelodTimer = reloadTimer;
         attackTimer = 0;
     }
 
@@ -36,16 +36,16 @@ public class PlayerShootin : MonoBehaviour
         attackTimer += Time.deltaTime;
         actualRelodTimer += Time.deltaTime;
 
-        if (actualRelodTimer >= reloadTimer)
+        //  if (actualRelodTimer >= reloadTimer)
+        //{
+        if (attackTimer >= attackDelayTimer)
         {
-            if (attackTimer >= attackDelayTimer)
+            if (Input.GetMouseButton(0))
             {
-                if (Input.GetMouseButton(0))
-                {
-                    Shoot();
-                }
+                Shoot();
             }
         }
+        //}
     }
 
     private void Shoot()
@@ -55,12 +55,12 @@ public class PlayerShootin : MonoBehaviour
         rigiBullet.AddForce(FirePoint.up * bulletForce, ForceMode2D.Impulse);
 
         attackTimer = 0;
-        magazine--;
+        //magazine--;
 
-        if (magazine <= 0)
-        {
-            actualRelodTimer = 0;
-            magazine = magazineCapacity;
-        }
+        // if (magazine <= 0)
+        // {
+        //     actualRelodTimer = 0;
+        //     magazine = magazineCapacity;
+        // }
     }
 }
