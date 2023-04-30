@@ -3148,7 +3148,7 @@ GameObject:
   - component: {fileID: 1895752986}
   m_Layer: 0
   m_Name: EnemySpawner
-  m_TagString: Untagged
+  m_TagString: Spawn
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3170,6 +3170,8 @@ MonoBehaviour:
   SpawnRadius: 4
   WaveTimer: 5
   ZombiesXWave: 5
+  maxZombiesSpawn: 5
+  zombiesSpawn: 0
 --- !u!212 &1895752987
 SpriteRenderer:
   m_ObjectHideFlags: 0

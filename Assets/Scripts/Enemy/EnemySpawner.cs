@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
@@ -10,6 +11,12 @@ public class EnemySpawner : MonoBehaviour
 
     [SerializeField] private float WaveTimer;
     [SerializeField] private int ZombiesXWave;
+
+    [SerializeField] private int maxZombiesSpawn;
+    
+    public int zombiesSpawn;
+
+    private bool canSpawn = true;
 
     private float nextWaveTime;
 
@@ -22,17 +29,33 @@ public class EnemySpawner : MonoBehaviour
     {
         nextWaveTime += Time.deltaTime;
 
-        if (nextWaveTime >= WaveTimer)
+        if (zombiesSpawn >= maxZombiesSpawn)
         {
-            for (int i = 0; i < ZombiesXWave; i++)
-            {
-                float xZoneSpawn = (Random.Range(spawnPosition.position.x + -SpawnRadius, spawnPosition.position.x + SpawnRadius));
-                float YZoneSpawn = (Random.Range(spawnPosition.position.x + -SpawnRadius, spawnPosition.position.x + SpawnRadius));
-                Instantiate(enemy, new Vector2(xZoneSpawn, YZoneSpawn), Quaternion.identity);
-            }
-
-            nextWaveTime = 0;
+            canSpawn = false;
         }
+
+        if (zombiesSpawn < maxZombiesSpawn) 
+        {
+            canSpawn = true;
+        }
+
+        if (canSpawn == true ) 
+        {
+            if (nextWaveTime >= WaveTimer)
+            {
+                for (int i = 0; i < ZombiesXWave; i++)
+                {
+                    zombiesSpawn++;
+                    float xZoneSpawn = (Random.Range(spawnPosition.position.x + -SpawnRadius, spawnPosition.position.x + SpawnRadius));
+                    float YZoneSpawn = (Random.Range(spawnPosition.position.x + -SpawnRadius, spawnPosition.position.x + SpawnRadius));
+                    Instantiate(enemy, new Vector2(xZoneSpawn, YZoneSpawn), Quaternion.identity);
+                }
+
+                nextWaveTime = 0;
+            }
+        }
+
+        Debug.Log(zombiesSpawn);
     }
 
     private void OnDrawGizmos()
