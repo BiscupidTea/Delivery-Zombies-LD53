@@ -8,15 +8,25 @@ public class PauseScript : MonoBehaviour
 
     [SerializeField] private Canvas PauseMenu;
 
+    [SerializeField] private Canvas BasicPause;
+    [SerializeField] private Canvas OptionsPause;
+
     private bool gamePause = false;
+
+    private bool gameOptions = false;
 
     private void Start()
     {
         PauseMenu.enabled = false;
+        BasicPause.enabled = false;
+        OptionsPause.enabled = false;
     }
     private void Update()
     {
-        ActivatePauseMenu();
+        if (!gameOptions)
+        {
+            ActivatePauseMenu();
+        }
     }
 
     private void ActivatePauseMenu()
@@ -40,6 +50,7 @@ public class PauseScript : MonoBehaviour
         Time.timeScale = 0.0f;
         gamePause = true;
         PauseMenu.enabled = true;
+        BasicPause.enabled = true;
     }
 
     public void Resume()
@@ -47,5 +58,20 @@ public class PauseScript : MonoBehaviour
         Time.timeScale = 1.0f;
         gamePause = false;
         PauseMenu.enabled = false;
+        BasicPause.enabled = false;
+    }
+
+    public void ActiveOptions()
+    {
+        gameOptions = true;
+        BasicPause.enabled = false;
+        OptionsPause.enabled = true;
+    }
+
+    public void DesactiveOptions()
+    {
+        gameOptions = false;
+        BasicPause.enabled = true;
+        OptionsPause.enabled = false;
     }
 }
