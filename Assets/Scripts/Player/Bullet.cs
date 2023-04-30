@@ -16,6 +16,7 @@ public class Bullet : MonoBehaviour
     {
         if (collision.gameObject.TryGetComponent<EnemyHealth>(out EnemyHealth enemyHealth))
         {
+            Debug.Log("colition");
             enemyHealth.EnemyTakeDamage(damage);
         }
         
