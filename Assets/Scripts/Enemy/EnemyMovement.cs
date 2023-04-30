@@ -47,7 +47,7 @@ public class EnemyMovement : MonoBehaviour
         distancePlayerEnemy = Vector2.Distance(Enemy.transform.position, Player.transform.position);
         Vector2 direction = Player.transform.position - Enemy.transform.position;
         direction.Normalize();
-        angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90f;
 
         if (distancePlayerEnemy <= detectionRadius)
         {
