@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class PlayerShootin : MonoBehaviour
 {
-
+    [SerializeField] private InputManager inputManager;
     [SerializeField] private Transform FirePoint;
     [SerializeField] private GameObject Bullet;
 
@@ -40,7 +40,7 @@ public class PlayerShootin : MonoBehaviour
         //{
         if (attackTimer >= attackDelayTimer)
         {
-            if (Input.GetMouseButton(0))
+            if (inputManager.CheckShootingInput())
             {
                 Shoot();
             }
@@ -48,7 +48,7 @@ public class PlayerShootin : MonoBehaviour
         //}
     }
 
-    private void Shoot()
+    public void Shoot()
     {
         GameObject bullet = Instantiate(Bullet, FirePoint.position, FirePoint.rotation);
         Rigidbody2D rigiBullet = bullet.GetComponent<Rigidbody2D>();

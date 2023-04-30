@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class HouseIndicator : MonoBehaviour
 {
+    [SerializeField] private InputManager inputManager;
     [SerializeField] private Transform target;
 
     [SerializeField] private float hideDistance;
@@ -26,7 +27,7 @@ public class HouseIndicator : MonoBehaviour
 
         if (timerDelayInput >= timerDelay)
         {
-            if (Input.GetMouseButton(1))
+            if (inputManager.CheckArrowInput())
             {
                 HideArrow = !HideArrow;
                 timerDelayInput = 0;

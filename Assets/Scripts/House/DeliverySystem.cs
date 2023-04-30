@@ -5,8 +5,10 @@ using UnityEngine;
 
 public class DeliverySystem : MonoBehaviour
 {
-    [Header("References")] 
-    
+    [Header("References")]
+
+    [SerializeField] private InputManager inputManager;
+
     [SerializeField] private GameObject player;
 
     [SerializeField] private GameObject house;
@@ -32,34 +34,12 @@ public class DeliverySystem : MonoBehaviour
         houseTimer = maxHouseTimer;
     }
 
-
     void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.E) && isCollision == true && starColdDown == false)
-        {
-            starColdDown = true;
-
-            warningImage.SetActive(false);
-
-            cM.GetMoney(10);
-
-            pM.RemovePackage(1);
-
-            Debug.Log("Paquete Entregado");
-        }
-
-        if(starColdDown == true) 
-        {
-            houseTimer -= Time.deltaTime;
-
-            if (houseTimer <= 0) 
-            {
-                warningImage.SetActive(true);
-                starColdDown = false;
-                houseTimer = maxHouseTimer;
-            }
-        }
+    {        
+        DeliveryLogic();
+        HouseTimer();
     }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
@@ -73,6 +53,41 @@ public class DeliverySystem : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             isCollision = false;
+        }
+    }
+
+    public void DeliveryLogic()
+    {
+        if (inputManager.CheckDeliveryInput())
+        {
+            if (isCollision == true && starColdDown == false)
+            {
+                starColdDown = true;
+
+                warningImage.SetActive(false);
+
+                cM.GetMoney(10);
+
+                pM.RemovePackage(1);
+
+                Debug.Log("Paquete Entregado");
+            }
+        }
+       
+    }
+
+    private void HouseTimer() 
+    {
+        if (starColdDown == true)
+        {
+            houseTimer -= Time.deltaTime;
+
+            if (houseTimer <= 0)
+            {
+                warningImage.SetActive(true);
+                starColdDown = false;
+                houseTimer = maxHouseTimer;
+            }
         }
     }
 }
