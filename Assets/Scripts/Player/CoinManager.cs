@@ -18,6 +18,11 @@ public class CoinManager : MonoBehaviour
     {
         actualsCoins -= coins;
 
+        if (actualsCoins <= 0) 
+        {
+            actualsCoins = 0;
+        }
+
         return actualsCoins;
     }
 

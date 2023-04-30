@@ -15,6 +15,12 @@ public class PacksManager : MonoBehaviour
     public int RemovePackage(int packs)
     {
         actualPacks -= packs;
+
+        if (actualPacks <= 0)
+        {
+            actualPacks = 0;
+        }
+
         return actualPacks;
     }
 
