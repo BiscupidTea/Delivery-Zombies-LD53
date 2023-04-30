@@ -16,6 +16,22 @@ public class PlayerHealth : MonoBehaviour
         dead = false;
     }
 
+    public void AddHealth()
+    {
+        health += 25;
+        if (health > maxHealth)
+            health = maxHealth;
+
+        Debug.Log("Upgraded health to " + health);
+        Debug.Log("Upgraded max health to " + maxHealth);
+    } 
+
+    public void AddMaxHealth()
+    {
+        maxHealth += 20;
+        Debug.Log("Upgraded max health to " + maxHealth);
+    }
+
     public void PlayerTakeDamage(float damage)
     {
         health -= damage;

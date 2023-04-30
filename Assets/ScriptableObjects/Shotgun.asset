@@ -14,4 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   title: Shotgun
   description: Base Shotgun Description
-  baseCost: 0
+  basePrice: 100
+  lastPrice: 0
+  currentPrice: 0
+  bought: 0
+  upgradable: 0
+  maxUpgrades: 0
+  timesUpgraded: 0
