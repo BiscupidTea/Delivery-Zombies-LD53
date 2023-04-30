@@ -5,10 +5,17 @@ using UnityEngine;
 public class PacksManager : MonoBehaviour
 {
     public int actualPacks = 5;
+    public int MaxPacks = 5;
 
     public int GetPackage(int packs)
     {
         actualPacks += packs;
+        return actualPacks;
+    }
+
+    public int SetPackage(int packs)
+    {
+        actualPacks = packs;
         return actualPacks;
     }
 

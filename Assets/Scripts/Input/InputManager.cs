@@ -51,4 +51,12 @@ public class InputManager : MonoBehaviour
         else
             return false;
     }
+
+    public bool CheckOpenStoreInput()
+    {
+        if (Input.GetKeyDown(KeyCode.P))
+            return true;
+        else
+            return false;
+    }
 }

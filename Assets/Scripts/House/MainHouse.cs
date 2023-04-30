@@ -1,19 +1,28 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography.X509Certificates;
 using UnityEngine;
 
 public class MainHouse : MonoBehaviour
 {
-    [SerializeField] private GameObject canvas;
+    [SerializeField] private InputManager inputManager;
+    [SerializeField] private GameObject StoreCanvas;
+    [SerializeField] private GameObject TextStore;
+    [SerializeField] private GameObject PositionHouse;
+    [SerializeField] private GameObject Player;
+    [SerializeField] private PacksManager PlayerPacks;
+
+    private bool storeOpen;
 
     private void Start()
     {
-        canvas.SetActive(false);
+        StoreCanvas.SetActive(false);
+        TextStore.SetActive(false);
     }
 
     private void Update()
     {
-        if (Input.GetKey(KeyCode.P)) 
+        if (inputManager.CheckOpenStoreInput()) 
         {
             ActivateShop();
         }
@@ -21,7 +30,7 @@ public class MainHouse : MonoBehaviour
 
     private void ActivateShop()
     {
-        canvas.SetActive(true);
+        StoreCanvas.SetActive(true);
 
         Time.timeScale = 0;
     }
@@ -29,6 +38,18 @@ public class MainHouse : MonoBehaviour
     public void ExitShop()
     {
         Time.timeScale = 1;
-        canvas.SetActive(false);
+        StoreCanvas.SetActive(false);
+    }
+
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        TextStore.SetActive(true);
+        PlayerPacks.SetPackage(PlayerPacks.MaxPacks);
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        TextStore.SetActive(false);
     }
 }
