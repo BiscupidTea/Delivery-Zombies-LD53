@@ -43,4 +43,12 @@ public class InputManager : MonoBehaviour
         else
             return false;
     }
+
+    public bool CheckPauseInput()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+            return true;
+        else
+            return false;
+    }
 }
