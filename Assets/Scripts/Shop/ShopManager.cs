@@ -96,7 +96,7 @@ public class ShopManager : MonoBehaviour
 
     public void AddCoins()
     {
-        coinManager.GetMoney(1);
+        coinManager.GetMoney(100);
         coinsUI.text = "Coins " + coinManager.actualsCoins.ToString();
         CheckPurchaseable();
     }
