@@ -39,6 +39,7 @@ public class PlayerHealth : MonoBehaviour
         {
             dead = true;
             Debug.Log("player is dead");
+            Destroy(gameObject);
         }
     }
 }

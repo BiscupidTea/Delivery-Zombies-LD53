@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class EnemyAttack : MonoBehaviour
@@ -17,6 +18,13 @@ public class EnemyAttack : MonoBehaviour
     private float attackTimer;
     private float distancePlayerEnemy;
 
+    private void Start()
+    {
+        List<GameObject> PlayerObject = GameObject.FindGameObjectsWithTag("Player").ToList();
+        Player = PlayerObject[0];
+        playerHealth = Player.GetComponent<PlayerHealth>();
+
+    }
     private void Update()
     {
         detectIsNearPlayer();
