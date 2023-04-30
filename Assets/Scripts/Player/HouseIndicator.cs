@@ -8,27 +8,60 @@ public class HouseIndicator : MonoBehaviour
 
     [SerializeField] private float hideDistance;
 
-    void Update()
+    private bool HideArrow;
+
+    [SerializeField] private float timerDelay;
+
+    private float timerDelayInput;
+
+    private void Start()
     {
-        var dir = target.position - transform.position;
-
-        if (dir.magnitude < hideDistance)
-        {
-            SetChildrenActive(false);
-        }
-
-        else
-        {
-            SetChildrenActive(true);
-
-            var angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-            transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
-        }
+        timerDelayInput = timerDelay;
     }
 
-    public void SetChildrenActive(bool value) 
+    void Update()
     {
-        foreach (Transform child in transform) 
+        timerDelayInput += Time.deltaTime;
+        var dir = target.position - transform.position;
+
+        if (timerDelayInput >= timerDelay)
+        {
+            if (Input.GetMouseButton(1))
+            {
+                HideArrow = !HideArrow;
+                timerDelayInput = 0;
+            }
+
+            if (HideArrow)
+            {
+                SetChildrenActive(true);
+            }
+            else
+            {
+                SetChildrenActive(false);
+            }
+        }
+
+        if (HideArrow)
+        {
+            if (dir.magnitude < hideDistance)
+            {
+                SetChildrenActive(false);
+            }
+            else
+            {
+                SetChildrenActive(true);
+
+                var angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+                transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+            }
+        }
+
+    }
+
+    public void SetChildrenActive(bool value)
+    {
+        foreach (Transform child in transform)
         {
             child.gameObject.SetActive(value);
         }

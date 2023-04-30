@@ -13,8 +13,6 @@ public class DeliverySystem : MonoBehaviour
 
     [SerializeField] private GameObject warningImage;
 
-    [SerializeField] private GameObject houseIndicator;
-
     [SerializeField] private CoinManager cM;
 
     [SerializeField] private PacksManager pM;
@@ -43,8 +41,6 @@ public class DeliverySystem : MonoBehaviour
 
             warningImage.SetActive(false);
 
-            houseIndicator.SetActive(false);
-
             cM.GetMoney(10);
 
             pM.RemovePackage(1);
@@ -59,7 +55,6 @@ public class DeliverySystem : MonoBehaviour
             if (houseTimer <= 0) 
             {
                 warningImage.SetActive(true);
-                houseIndicator.SetActive(true);
                 starColdDown = false;
                 houseTimer = maxHouseTimer;
             }
