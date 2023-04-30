@@ -54,8 +54,6 @@ public class EnemySpawner : MonoBehaviour
                 nextWaveTime = 0;
             }
         }
-
-        Debug.Log(zombiesSpawn);
     }
 
     private void OnDrawGizmos()

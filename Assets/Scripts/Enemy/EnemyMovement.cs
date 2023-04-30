@@ -75,6 +75,5 @@ public class EnemyMovement : MonoBehaviour
             Gizmos.color = Color.black;
             Gizmos.DrawLine(Enemy.transform.position, Player.transform.position);
         }
-
     }
 }
