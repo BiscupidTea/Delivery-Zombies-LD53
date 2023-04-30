@@ -12,7 +12,7 @@ public class MainHouse : MonoBehaviour
     [SerializeField] private GameObject Player;
     [SerializeField] private PacksManager PlayerPacks;
 
-    private bool storeOpen;
+    private bool insideOpenStore;
 
     private void Start()
     {
@@ -22,9 +22,12 @@ public class MainHouse : MonoBehaviour
 
     private void Update()
     {
-        if (inputManager.CheckOpenStoreInput()) 
+        if (insideOpenStore)
         {
-            ActivateShop();
+            if (inputManager.CheckOpenStoreInput())
+            {
+                ActivateShop();
+            }
         }
     }
 
@@ -46,10 +49,12 @@ public class MainHouse : MonoBehaviour
     {
         TextStore.SetActive(true);
         PlayerPacks.SetPackage(PlayerPacks.MaxPacks);
+        insideOpenStore = true;
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
         TextStore.SetActive(false);
+        insideOpenStore = false;
     }
 }

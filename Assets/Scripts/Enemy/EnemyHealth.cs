@@ -14,7 +14,6 @@ public class EnemyHealth : MonoBehaviour
 
 
     [Header("References")]
-
     private bool dead;
 
     private void Start()

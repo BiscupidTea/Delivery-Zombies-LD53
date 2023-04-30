@@ -11,7 +11,7 @@ public class PlayerHealth : MonoBehaviour
     public float maxHealth;
     public float health;
 
-    private bool dead;
+    public bool dead;
 
     private void Start()
     {
@@ -45,7 +45,6 @@ public class PlayerHealth : MonoBehaviour
         {
             dead = true;
             Debug.Log("player is dead");
-            Destroy(gameObject);
         }
     }
 }
