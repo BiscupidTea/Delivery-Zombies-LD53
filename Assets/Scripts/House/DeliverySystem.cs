@@ -14,41 +14,55 @@ public class DeliverySystem : MonoBehaviour
     [SerializeField] private GameObject house;
 
     [SerializeField] private GameObject warningImage;
+    [SerializeField] private GameObject DestroyedImage;
 
     [SerializeField] private CoinManager cM;
 
     [SerializeField] private PacksManager pM;
 
+    [SerializeField] private Canvas TextAdvisor;
+
     public AudioManager audioManager;
 
     [Header("House Cold Down")]
 
-    [SerializeField] private float maxHouseTimer = 5.0f;
+    [SerializeField] private float maxHouseTimer = 120f;
+    [SerializeField] private float maxHouseTimerToDestroy = 240f;
 
     private float houseTimer = 0;
+    private float HouseTimerToDestroy = 0;
 
     private bool starColdDown = false;
+    private bool houseDesteroyed = false;
 
     private bool isCollision = false;
 
     void Start()
     {
         houseTimer = maxHouseTimer;
+        DestroyedImage.SetActive(false);
+        TextAdvisor.gameObject.SetActive(false);
     }
 
     void Update()
     {
-        if (pM.CheckCurrentPackages())
-        {
-            DeliveryLogic();
-            HouseTimer();
-        }
+        DeliveryLogic();
+        HouseTimer();
+        DestroyHouseProcces();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
+            if (!houseDesteroyed && starColdDown == false && pM.CheckCurrentPackages())
+            {
+                TextAdvisor.gameObject.SetActive(true);
+            }
+            else
+            {
+                TextAdvisor.gameObject.SetActive(false);
+            }
             isCollision = true;
         }
     }
@@ -57,6 +71,7 @@ public class DeliverySystem : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
+            TextAdvisor.gameObject.SetActive(false);
             isCollision = false;
         }
     }
@@ -65,29 +80,31 @@ public class DeliverySystem : MonoBehaviour
     {
         if (inputManager.CheckDeliveryInput())
         {
-            if (isCollision == true && starColdDown == false)
+            if (isCollision == true && starColdDown == false && pM.CheckCurrentPackages())
             {
                 starColdDown = true;
+                HouseTimerToDestroy = 0;
 
+                TextAdvisor.gameObject.SetActive(false);
                 warningImage.SetActive(false);
 
                 //if (pM.CheckCurrentPackages())
                 //{
-                    pM.RemovePackage(1);
-                    var rnd = Random.Range(25, 75);
-                    cM.GetMoney(rnd);
-                    Debug.Log("Paquete Entregado");
+                pM.RemovePackage(1);
+                var rnd = Random.Range(25, 75);
+                cM.GetMoney(rnd);
+                Debug.Log("Paquete Entregado");
                 audioManager.PlaySFX(audioManager.playerDelivery);
                 //}
                 //else
                 //    warningImage.SetActive(false);
             }
-        }       
+        }
     }
 
-    private void HouseTimer() 
+    private void HouseTimer()
     {
-        if (starColdDown == true)
+        if (starColdDown == true && !houseDesteroyed)
         {
             houseTimer -= Time.deltaTime;
 
@@ -95,11 +112,24 @@ public class DeliverySystem : MonoBehaviour
             {
                 //if (pM.CheckCurrentPackages())
                 //{
-                    warningImage.SetActive(true);
+                warningImage.SetActive(true);
                 //}
                 starColdDown = false;
                 houseTimer = maxHouseTimer;
             }
+        }
+    }
+
+    private void DestroyHouseProcces()
+    {
+        HouseTimerToDestroy += Time.deltaTime;
+
+        if (HouseTimerToDestroy >= maxHouseTimerToDestroy)
+        {
+            houseDesteroyed = true;
+            DestroyedImage.SetActive(true);
+            warningImage.SetActive(false);
+            TextAdvisor.gameObject.SetActive(false);
         }
     }
 }
