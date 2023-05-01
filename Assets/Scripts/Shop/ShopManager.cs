@@ -16,6 +16,7 @@ public class ShopManager : MonoBehaviour
 
     private void Start()
     {
+
         for (int i = 0; i < shopItemsSO.Length; i++)
         {
             shopPanelsSO[i].gameObject.SetActive(true);
@@ -74,7 +75,11 @@ public class ShopManager : MonoBehaviour
                     }
                 }
 
-            }           
+            }
+            else
+            {
+                shopItemsSO[buttonNumber].bought = true;
+            }
 
             CheckPurchaseable();           
         }      
@@ -84,13 +89,11 @@ public class ShopManager : MonoBehaviour
     {
         for (int i = 0; i < shopItemsSO.Length; i++)
         {
-            if (shopItemsSO[i].upgradable)
-            {
-                shopItemsSO[i].bought = false;
-                shopItemsSO[i].timesUpgraded = 0;
-                shopItemsSO[i].currentPrice = shopItemsSO[i].basePrice;
-                shopItemsSO[i].lastPrice = shopItemsSO[i].basePrice;
-            }
+            shopItemsSO[i].bought = false;
+            shopItemsSO[i].timesUpgraded = 0;
+            shopItemsSO[i].currentPrice = shopItemsSO[i].basePrice;
+            shopItemsSO[i].lastPrice = shopItemsSO[i].basePrice;
+            
         } 
     }
 
@@ -107,11 +110,13 @@ public class ShopManager : MonoBehaviour
         {
             if (!shopItemsSO[i].bought)
             {
-                if (coinManager.actualsCoins >= shopItemsSO[i].basePrice)
+                if (coinManager.actualsCoins >= shopItemsSO[i].currentPrice)
                     myPurchaseButtons[i].interactable = true;
                 else
                     myPurchaseButtons[i].interactable = false;
-            }           
+            }
+            else
+                myPurchaseButtons[i].interactable = false;
         }
     }
 }

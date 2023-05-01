@@ -8,6 +8,9 @@ public class PlayerGun : MonoBehaviour
     [SerializeField] private GameObject[] guns;
     [SerializeField] private GameObject firePivotsHolder;
 
+    [SerializeField] private ShopItemSO shotgun;
+    [SerializeField] private ShopItemSO rifle;
+
     private void Start()
     {
         guns[0].SetActive(true);
@@ -26,21 +29,27 @@ public class PlayerGun : MonoBehaviour
         {
             case 1:
                 firePivotsHolder.SetActive(false);
-                guns[0].SetActive(true);
-                guns[1].SetActive(false);
-                guns[2].SetActive(false);
+                guns[0].SetActive(true);               
+                guns[1].SetActive(false);               
+                guns[2].SetActive(false);               
                 break;
             case 2:
-                firePivotsHolder.SetActive(true);
-                guns[0].SetActive(false);
-                guns[1].SetActive(true);
-                guns[2].SetActive(false);
+                if (shotgun.bought)
+                {
+                    firePivotsHolder.SetActive(true);
+                    guns[0].SetActive(false);
+                    guns[1].SetActive(true);
+                    guns[2].SetActive(false);
+                }                    
                 break;
             case 3:
-                firePivotsHolder.SetActive(false);
-                guns[0].SetActive(false);
-                guns[1].SetActive(false);
-                guns[2].SetActive(true);
+                if (rifle.bought)
+                {
+                    firePivotsHolder.SetActive(false);
+                    guns[0].SetActive(false);
+                    guns[1].SetActive(false);
+                    guns[2].SetActive(true);
+                }                    
                 break;
             default:
                 break;
