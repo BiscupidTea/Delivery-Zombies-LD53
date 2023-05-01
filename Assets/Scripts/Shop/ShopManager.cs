@@ -52,27 +52,19 @@ public class ShopManager : MonoBehaviour
     {
         if (!shopItemsSO[buttonNumber].bought)
         {
-            shopItemsSO[buttonNumber].lastPrice = shopItemsSO[buttonNumber].currentPrice;
 
-            coinManager.actualsCoins -= shopItemsSO[buttonNumber].currentPrice;
+            coinManager.actualsCoins -= shopItemsSO[buttonNumber].basePrice;
             if (coinManager.actualsCoins <= 0)
             {
                 coinManager.actualsCoins = 0;
             }
             coinsUI.text = "Coins " + coinManager.actualsCoins.ToString();               
-            shopItemsSO[buttonNumber].currentPrice = shopItemsSO[buttonNumber].lastPrice * 2;
 
             if (shopItemsSO[buttonNumber].upgradable)
             {
                 if (shopItemsSO[buttonNumber].timesUpgraded < shopItemsSO[buttonNumber].maxUpgrades)
                 {
                     shopItemsSO[buttonNumber].timesUpgraded++;
-
-                    
-
-                    shopPanels[buttonNumber].costText.text = "Unlock level: " + (shopItemsSO[buttonNumber].timesUpgraded + 1) +
-                    " Coins: " + shopItemsSO[buttonNumber].currentPrice.ToString();
-
 
                     if (shopItemsSO[buttonNumber].timesUpgraded == shopItemsSO[buttonNumber].maxUpgrades)
                     {
@@ -94,10 +86,7 @@ public class ShopManager : MonoBehaviour
         for (int i = 0; i < shopItemsSO.Length; i++)
         {
             shopItemsSO[i].bought = false;
-            shopItemsSO[i].timesUpgraded = 0;
-            shopItemsSO[i].currentPrice = shopItemsSO[i].basePrice;
-            shopItemsSO[i].lastPrice = shopItemsSO[i].basePrice;
-            
+            shopItemsSO[i].timesUpgraded = 0;            
         } 
     }
 
@@ -113,9 +102,9 @@ public class ShopManager : MonoBehaviour
         {
             if (!shopItemsSO[i].bought)
             {
-                if (coinManager.actualsCoins >= shopItemsSO[i].currentPrice)
+                if (coinManager.actualsCoins >= shopItemsSO[i].basePrice)
                 {                  
-                    if (shopItemsSO[i].name == "Heal")
+                    if (shopItemsSO[i].name == "Health Pack")
                     {
                         if (playerHealth.health == playerHealth.maxHealth)
                             myPurchaseButtons[i].interactable = false;

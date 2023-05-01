@@ -6,8 +6,6 @@ public class ShopItemSO : ScriptableObject
     public string title;
     public string description;
     public int basePrice;
-    public int lastPrice;
-    public int currentPrice;
     public bool bought;
     public bool upgradable;
     public int maxUpgrades;

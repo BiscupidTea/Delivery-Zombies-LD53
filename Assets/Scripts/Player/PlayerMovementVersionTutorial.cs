@@ -31,7 +31,7 @@ public class PlayerMovementVersionTutorial : MonoBehaviour
 
     public void AddMaxSpeed()
     {
-        moveSpeed += 5;
+        moveSpeed *= 2;
     }
 
     private void GetMousePos()
