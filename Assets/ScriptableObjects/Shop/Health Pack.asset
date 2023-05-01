@@ -10,13 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ff026b8c5a9db56479595268391d02da, type: 3}
-  m_Name: Heal
+  m_Name: Health Pack
   m_EditorClassIdentifier: 
-  title: Health
-  description: Base Health Description
-  basePrice: 20
-  lastPrice: 20
-  currentPrice: 40
+  title: Health Pack
+  description: Heal yourself with this
+  basePrice: 125
   bought: 0
   upgradable: 1
   maxUpgrades: 300

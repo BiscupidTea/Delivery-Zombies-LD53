@@ -19,6 +19,14 @@ public class PacksManager : MonoBehaviour
         return actualPacks;
     }
 
+    public bool CheckCurrentPackages()
+    {
+        if (actualPacks > 0) 
+            return true;
+        else
+            return false;
+    }
+
     public int RemovePackage(int packs)
     {
         actualPacks -= packs;

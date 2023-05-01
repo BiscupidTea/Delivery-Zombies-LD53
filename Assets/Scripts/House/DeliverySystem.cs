@@ -35,9 +35,12 @@ public class DeliverySystem : MonoBehaviour
     }
 
     void Update()
-    {        
-        DeliveryLogic();
-        HouseTimer();
+    {
+        if (pM.CheckCurrentPackages())
+        {
+            DeliveryLogic();
+            HouseTimer();
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -66,14 +69,17 @@ public class DeliverySystem : MonoBehaviour
 
                 warningImage.SetActive(false);
 
-                cM.GetMoney(10);
-
-                pM.RemovePackage(1);
-
-                Debug.Log("Paquete Entregado");
+                //if (pM.CheckCurrentPackages())
+                //{
+                    pM.RemovePackage(1);
+                    var rnd = Random.Range(25, 75);
+                    cM.GetMoney(rnd);
+                    Debug.Log("Paquete Entregado");
+                //}
+                //else
+                //    warningImage.SetActive(false);
             }
-        }
-       
+        }       
     }
 
     private void HouseTimer() 
@@ -84,7 +90,10 @@ public class DeliverySystem : MonoBehaviour
 
             if (houseTimer <= 0)
             {
-                warningImage.SetActive(true);
+                //if (pM.CheckCurrentPackages())
+                //{
+                    warningImage.SetActive(true);
+                //}
                 starColdDown = false;
                 houseTimer = maxHouseTimer;
             }

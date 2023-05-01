@@ -21,10 +21,8 @@ public class PlayerHealth : MonoBehaviour
 
     public void AddHealth()
     {
-        health += 25;
+        health = maxHealth;
         playerHud.slider.value += 25;
-        if (health > maxHealth)
-            health = maxHealth;
 
         Debug.Log("Upgraded health to " + health);
         Debug.Log("Upgraded max health to " + maxHealth);
@@ -32,8 +30,9 @@ public class PlayerHealth : MonoBehaviour
 
     public void AddMaxHealth()
     {
-        maxHealth += 20;
+        maxHealth *= 2;
         playerHud.slider.maxValue += 20;
+        health += (maxHealth - health) / 2;
         Debug.Log("Upgraded max health to " + maxHealth);
     }
 
