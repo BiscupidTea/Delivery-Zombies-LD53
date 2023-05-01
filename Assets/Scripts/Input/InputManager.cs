@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class InputManager : MonoBehaviour
 {
+    [SerializeField] private Gun[] guns;
+
     private void Update()
     {
         CheckDeliveryInput();
@@ -58,5 +60,29 @@ public class InputManager : MonoBehaviour
             return true;
         else
             return false;
+    }
+
+    public int ChangeWeapon()
+    {
+        int weaponNumber;
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            weaponNumber = 1;
+            return weaponNumber;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            weaponNumber = 2;
+            return weaponNumber;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            weaponNumber = 3;
+            return weaponNumber;
+        }
+
+        return 0;
     }
 }
