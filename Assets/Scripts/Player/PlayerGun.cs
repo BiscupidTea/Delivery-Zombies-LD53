@@ -11,7 +11,7 @@ public class PlayerGun : MonoBehaviour
     [SerializeField] private ShopItemSO shotgun;
     [SerializeField] private ShopItemSO rifle;
 
-    [SerializeField] private SpriteRenderer playerSpriteRenderer;
+    [SerializeField] private GameObject playerSprite;
     [SerializeField] private Sprite[] playerSprites;
 
     private void Start()
@@ -19,6 +19,9 @@ public class PlayerGun : MonoBehaviour
         guns[0].SetActive(true);
         guns[1].SetActive(false);
         guns[2].SetActive(false);
+
+
+        playerSprite.GetComponent<SpriteRenderer>().sprite = playerSprites[0];
     }
 
     private void Update()
@@ -35,7 +38,7 @@ public class PlayerGun : MonoBehaviour
                 guns[0].SetActive(true);               
                 guns[1].SetActive(false);               
                 guns[2].SetActive(false);
-                playerSpriteRenderer.sprite = playerSprites[0];
+                playerSprite.GetComponent<SpriteRenderer>().sprite = playerSprites[0];
                 break;
             case 2:
                 if (shotgun.bought)
@@ -44,8 +47,8 @@ public class PlayerGun : MonoBehaviour
                     guns[0].SetActive(false);
                     guns[1].SetActive(true);
                     guns[2].SetActive(false);
-                    playerSpriteRenderer.sprite = playerSprites[1];
-                }                    
+                    playerSprite.GetComponent<SpriteRenderer>().sprite = playerSprites[1];
+                }
                 break;
             case 3:
                 if (rifle.bought)
@@ -54,7 +57,7 @@ public class PlayerGun : MonoBehaviour
                     guns[0].SetActive(false);
                     guns[1].SetActive(false);
                     guns[2].SetActive(true);
-                    playerSpriteRenderer.sprite = playerSprites[2];
+                    playerSprite.GetComponent<SpriteRenderer>().sprite = playerSprites[2];
                 }                    
                 break;
             default:
