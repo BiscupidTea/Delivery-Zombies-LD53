@@ -7,6 +7,7 @@ using TMPro;
 public class ShopManager : MonoBehaviour
 {
     [SerializeField] private CoinManager coinManager;
+    [SerializeField] private PlayerHealth playerHealth;
 
     public TMP_Text coinsUI;
     public ShopItemSO[] shopItemsSO;
@@ -26,6 +27,11 @@ public class ShopManager : MonoBehaviour
            
             CheckPurchaseable();
         }
+    }
+
+    private void Update()
+    {
+        CheckPurchaseable();
     }
 
     public void LoadPanels()
@@ -79,9 +85,7 @@ public class ShopManager : MonoBehaviour
             else
             {
                 shopItemsSO[buttonNumber].bought = true;
-            }
-
-            CheckPurchaseable();           
+            }         
         }      
     }
 
@@ -101,7 +105,6 @@ public class ShopManager : MonoBehaviour
     {
         coinManager.GetMoney(100);
         coinsUI.text = "Coins " + coinManager.actualsCoins.ToString();
-        CheckPurchaseable();
     }
 
     public void CheckPurchaseable()
@@ -111,7 +114,18 @@ public class ShopManager : MonoBehaviour
             if (!shopItemsSO[i].bought)
             {
                 if (coinManager.actualsCoins >= shopItemsSO[i].currentPrice)
-                    myPurchaseButtons[i].interactable = true;
+                {                  
+                    if (shopItemsSO[i].name == "Heal")
+                    {
+                        if (playerHealth.health == playerHealth.maxHealth)
+                            myPurchaseButtons[i].interactable = false;
+                        else
+                            myPurchaseButtons[i].interactable = true;
+                    }
+                    else
+                        myPurchaseButtons[i].interactable = true;
+
+                }
                 else
                     myPurchaseButtons[i].interactable = false;
             }

@@ -10,10 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 949a78851b1da234dab1e42b45462e7a, type: 3}
-  m_Name: AssualtRifle
+  m_Name: AssaultRifle
   m_EditorClassIdentifier: 
-  name: AssualtRifle
+  name: AssaultRifle
   damage: 42
   shotsPerInput: 1
   fireRate: 0.1
   accuracy: 90
+  recoilForce: 0
