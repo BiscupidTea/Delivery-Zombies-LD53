@@ -6,8 +6,6 @@ public class PlayerMovementVersionTutorial : MonoBehaviour
 {
     [SerializeField] private InputManager inputManager;
 
-    AudioManager audioManager;
-
     public float moveSpeed = 5f;
 
     public Rigidbody2D rb;
@@ -15,7 +13,6 @@ public class PlayerMovementVersionTutorial : MonoBehaviour
 
     Vector2 movement;
     Vector2 mousePos;
-
     // Update is called once per frame
     void Update()
     {

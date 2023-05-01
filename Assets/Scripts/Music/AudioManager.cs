@@ -75,6 +75,7 @@ public class AudioManager : MonoBehaviour
         }
     }
 
+    #region WeaponsSounds
     int fireBuletShootgun = 0;
     public void PlayShootgunSFX()
     {
@@ -161,5 +162,44 @@ public class AudioManager : MonoBehaviour
             fireBuletRifle = 0;
         }
     }
+    #endregion
 
+    #region PlayerSounds
+    int walkSwitch = 0;
+    public void PlayPlayerWalkSFX()
+    {
+        if (!SFXSource.isPlaying)
+        {
+            walkSwitch++;
+            switch (walkSwitch)
+            {
+                case 0:
+                    SFXSource.PlayOneShot(playerWalk1);
+                    break;
+                case 1:
+                    SFXSource.PlayOneShot(playerWalk2);
+                    break;
+                case 2:
+                    SFXSource.PlayOneShot(playerWalk3);
+                    break;
+                case 3:
+                    SFXSource.PlayOneShot(playerWalk4);
+                    break;
+                default:
+                    break;
+            }
+
+            if (walkSwitch == 3)
+            {
+                walkSwitch = 0;
+            }
+        }
+    }
+
+    public void PlayPlayerBuySFX()
+    {
+
+    }
+
+    #endregion
 }
