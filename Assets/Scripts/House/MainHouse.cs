@@ -47,9 +47,12 @@ public class MainHouse : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        TextStore.SetActive(true);
-        PlayerPacks.SetPackage(PlayerPacks.MaxPacks);
-        insideOpenStore = true;
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            TextStore.SetActive(true);
+            PlayerPacks.SetPackage(PlayerPacks.MaxPacks);
+            insideOpenStore = true;
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
