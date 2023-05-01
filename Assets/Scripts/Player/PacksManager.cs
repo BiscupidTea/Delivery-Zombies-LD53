@@ -13,9 +13,9 @@ public class PacksManager : MonoBehaviour
         return actualPacks;
     }
 
-    public int SetPackage(int packs)
+    public int ResetFullPackage()
     {
-        actualPacks = packs;
+        actualPacks = MaxPacks;
         return actualPacks;
     }
 
@@ -34,5 +34,10 @@ public class PacksManager : MonoBehaviour
     public void ResetPackage()
     {
         actualPacks = 0;
+    }
+
+    public void addOneMoreMaxPackage()
+    {
+        MaxPacks++;
     }
 }

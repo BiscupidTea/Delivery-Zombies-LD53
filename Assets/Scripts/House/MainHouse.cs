@@ -50,7 +50,7 @@ public class MainHouse : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             TextStore.SetActive(true);
-            PlayerPacks.SetPackage(PlayerPacks.MaxPacks);
+            PlayerPacks.ResetFullPackage();
             insideOpenStore = true;
         }
     }

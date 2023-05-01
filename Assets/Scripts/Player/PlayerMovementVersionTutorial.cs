@@ -25,11 +25,16 @@ public class PlayerMovementVersionTutorial : MonoBehaviour
 
     void FixedUpdate()
     {
-       rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
+        rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
 
         Vector2 lookDir = mousePos - rb.position;
         float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg - 90f;
         rb.rotation = angle;
+    }
+
+    public void AddMaxSpeed()
+    {
+        moveSpeed += 5;
     }
 
     private void GetMousePos()
