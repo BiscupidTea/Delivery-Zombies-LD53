@@ -11,7 +11,7 @@ public class AudioManager : MonoBehaviour
     [Header("------------- Audio clips -------------")]
     //music
     public AudioClip background;
-    
+
     //enemy
     public AudioClip ZombieAttack1;
     public AudioClip ZombieAttack2;
@@ -49,10 +49,9 @@ public class AudioManager : MonoBehaviour
     public AudioClip gunShoot2;
     public AudioClip gunShoot3;
     public AudioClip gunShoot4;
-    
+
     public AudioClip shootgunShoot1;
     public AudioClip shootgunShoot2;
-    public AudioClip shootgunLoad;
 
     public AudioClip rifleShoot1;
     public AudioClip rifleShoot2;
@@ -66,6 +65,101 @@ public class AudioManager : MonoBehaviour
     {
         musicSource.clip = background;
         musicSource.Play();
+    }
+
+    public void PlaySFX(AudioClip clip)
+    {
+        if (!SFXSource.isPlaying)
+        {
+            SFXSource.PlayOneShot(clip);
+        }
+    }
+
+    int fireBuletShootgun = 0;
+    public void PlayShootgunSFX()
+    {
+        fireBuletShootgun++;
+        switch (fireBuletPistol)
+        {
+            case 0:
+                SFXSource.PlayOneShot(shootgunShoot1);
+                break;
+            case 1:
+                SFXSource.PlayOneShot(shootgunShoot2);
+                break;
+            default:
+                break;
+        }
+
+        if (fireBuletShootgun == 1)
+        {
+            fireBuletShootgun = 0;
+        }
+    }
+
+    int fireBuletPistol = 0;
+    public void PlayPistolSFX()
+    {
+        fireBuletPistol++;
+        switch (fireBuletPistol)
+        {
+            case 0:
+                SFXSource.PlayOneShot(gunShoot1);
+                break;
+            case 1:
+                SFXSource.PlayOneShot(gunShoot2);
+                break;
+            case 2:
+                SFXSource.PlayOneShot(gunShoot3);
+                break;
+            case 3:
+                SFXSource.PlayOneShot(gunShoot4);
+                break;
+            default:
+                break;
+        }
+
+        if (fireBuletPistol == 3)
+        {
+            fireBuletPistol = 0;
+        }
+    }
+
+    int fireBuletRifle = 0;
+    public void PlayRifleSoundSFX()
+    {
+        fireBuletRifle++;
+        switch (fireBuletRifle)
+        {
+            case 0:
+                SFXSource.PlayOneShot(rifleShoot1);
+                break;
+            case 1:
+                SFXSource.PlayOneShot(rifleShoot2);
+                break;
+            case 2:
+                SFXSource.PlayOneShot(rifleShoot3);
+                break;
+            case 3:
+                SFXSource.PlayOneShot(rifleShoot4);
+                break;
+            case 4:
+                SFXSource.PlayOneShot(rifleShoot5);
+                break;
+            case 5:
+                SFXSource.PlayOneShot(rifleShoot6);
+                break;
+            case 6:
+                SFXSource.PlayOneShot(rifleShoot7);
+                break;
+            default:
+                break;
+        }
+
+        if (fireBuletRifle == 6)
+        {
+            fireBuletRifle = 0;
+        }
     }
 
 }

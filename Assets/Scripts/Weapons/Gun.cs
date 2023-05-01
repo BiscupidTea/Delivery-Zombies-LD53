@@ -20,6 +20,7 @@ public class Gun : MonoBehaviour
     [Header("Timers")]
     private float attackTimer;
 
+    public AudioManager audioManager;
 
     // Start is called before the first frame update
     void Start()
@@ -53,12 +54,21 @@ public class Gun : MonoBehaviour
                 Rigidbody2D rigiBullet = bullet.GetComponent<Rigidbody2D>();
                 rigiBullet.AddForce(firePivot[i].transform.up * bulletForce, ForceMode2D.Impulse);
             }
-        }                 
+                audioManager.PlayShootgunSFX();
+        }
+        if (gunData.name == "Pistol")
+        {
+            GameObject bullet = Instantiate(Bullet, centerFirePivot.position, centerFirePivot.rotation);
+            Rigidbody2D rigiBullet = bullet.GetComponent<Rigidbody2D>();
+            rigiBullet.AddForce(centerFirePivot.up * bulletForce, ForceMode2D.Impulse);
+            audioManager.PlayPistolSFX();
+        }
         else
         {
             GameObject bullet = Instantiate(Bullet, centerFirePivot.position, centerFirePivot.rotation);
             Rigidbody2D rigiBullet = bullet.GetComponent<Rigidbody2D>();
             rigiBullet.AddForce(centerFirePivot.up * bulletForce, ForceMode2D.Impulse);
+            audioManager.PlayRifleSoundSFX();
         }
 
         ResetAttackTimer();
