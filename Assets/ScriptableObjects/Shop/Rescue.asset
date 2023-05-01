@@ -16,7 +16,7 @@ MonoBehaviour:
   description: Base Rescue description
   basePrice: 1000
   lastPrice: 1000
-  currentPrice: 2000
+  currentPrice: 1000
   bought: 0
   upgradable: 0
   maxUpgrades: 0

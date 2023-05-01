@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff026b8c5a9db56479595268391d02da, type: 3}
   m_Name: AssaultRifle
   m_EditorClassIdentifier: 
-  title: SniperRifle
+  title: Assualt Rifle
   description: Base Sniper Rifle Description
   basePrice: 150
-  lastPrice: 0
-  currentPrice: 0
+  lastPrice: 150
+  currentPrice: 150
   bought: 0
   upgradable: 0
   maxUpgrades: 0
