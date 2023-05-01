@@ -14,7 +14,6 @@ public class DeliverySystem : MonoBehaviour
     [SerializeField] private GameObject house;
 
     [SerializeField] private GameObject warningImage;
-    [SerializeField] private GameObject DestroyedImage;
 
     [SerializeField] private CoinManager cM;
 
@@ -27,20 +26,16 @@ public class DeliverySystem : MonoBehaviour
     [Header("House Cold Down")]
 
     [SerializeField] private float maxHouseTimer = 120f;
-    [SerializeField] private float maxHouseTimerToDestroy = 240f;
 
     private float houseTimer = 0;
-    private float HouseTimerToDestroy = 0;
 
     private bool starColdDown = false;
-    private bool houseDesteroyed = false;
 
     private bool isCollision = false;
 
     void Start()
     {
         houseTimer = maxHouseTimer;
-        DestroyedImage.SetActive(false);
         TextAdvisor.gameObject.SetActive(false);
     }
 
@@ -48,14 +43,13 @@ public class DeliverySystem : MonoBehaviour
     {
         DeliveryLogic();
         HouseTimer();
-        DestroyHouseProcces();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            if (!houseDesteroyed && starColdDown == false && pM.CheckCurrentPackages())
+            if (starColdDown == false && pM.CheckCurrentPackages())
             {
                 TextAdvisor.gameObject.SetActive(true);
             }
@@ -83,7 +77,6 @@ public class DeliverySystem : MonoBehaviour
             if (isCollision == true && starColdDown == false && pM.CheckCurrentPackages())
             {
                 starColdDown = true;
-                HouseTimerToDestroy = 0;
 
                 TextAdvisor.gameObject.SetActive(false);
                 warningImage.SetActive(false);
@@ -104,7 +97,7 @@ public class DeliverySystem : MonoBehaviour
 
     private void HouseTimer()
     {
-        if (starColdDown == true && !houseDesteroyed)
+        if (starColdDown == true)
         {
             houseTimer -= Time.deltaTime;
 
@@ -117,19 +110,6 @@ public class DeliverySystem : MonoBehaviour
                 starColdDown = false;
                 houseTimer = maxHouseTimer;
             }
-        }
-    }
-
-    private void DestroyHouseProcces()
-    {
-        HouseTimerToDestroy += Time.deltaTime;
-
-        if (HouseTimerToDestroy >= maxHouseTimerToDestroy)
-        {
-            houseDesteroyed = true;
-            DestroyedImage.SetActive(true);
-            warningImage.SetActive(false);
-            TextAdvisor.gameObject.SetActive(false);
         }
     }
 }

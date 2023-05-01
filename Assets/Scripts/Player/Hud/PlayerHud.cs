@@ -29,8 +29,8 @@ public class PlayerHud : MonoBehaviour
         slider.value = playerHealth.health;
         slider.maxValue = playerHealth.maxHealth;
 
-        moneyText.text = "Money: " + currentMoney.ToString();
-        packsText.text = "Packs: " + currentPacks.ToString();
+        moneyText.text = currentMoney.ToString();
+        packsText.text = currentPacks.ToString();
     }
 
 }
