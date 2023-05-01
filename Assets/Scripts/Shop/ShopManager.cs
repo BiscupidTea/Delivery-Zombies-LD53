@@ -42,10 +42,8 @@ public class ShopManager : MonoBehaviour
        {
             shopPanels[i].titleText.text = shopItemsSO[i].title;
             shopPanels[i].descriptionText.text = shopItemsSO[i].description;
-            if (shopItemsSO[i].upgradable)
-                shopPanels[i].costText.text = "Unlock level: " + (shopItemsSO[i].timesUpgraded + 1) +  "Coins: " + shopItemsSO[i].basePrice.ToString();
-            else
-                shopPanels[i].costText.text = "Coins: " + shopItemsSO[i].basePrice.ToString();
+
+            shopPanels[i].costText.text = "Coins: " + shopItemsSO[i].basePrice.ToString();
 
         }
     }

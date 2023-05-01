@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff026b8c5a9db56479595268391d02da, type: 3}
   m_Name: AssaultRifle
   m_EditorClassIdentifier: 
-  title: Assualt Rifle
-  description: Base Sniper Rifle Description
+  title: Assault Rifle
+  description: Automatic fire weapon
   basePrice: 150
   bought: 0
   upgradable: 0

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Shotgun
   m_EditorClassIdentifier: 
   title: Shotgun
-  description: Base Shotgun Description
+  description: Multiple fire weapon
   basePrice: 100
   bought: 0
   upgradable: 0
