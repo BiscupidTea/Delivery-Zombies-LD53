@@ -196,10 +196,95 @@ public class AudioManager : MonoBehaviour
         }
     }
 
+    int BuyPlayerSwitch = 0;
     public void PlayPlayerBuySFX()
     {
+        BuyPlayerSwitch++;
+        switch (BuyPlayerSwitch)
+        {
+            case 0:
+                SFXSource.PlayOneShot(playerBuy1);
+                break;
+            case 1:
+                SFXSource.PlayOneShot(playerBuy2);
+                break;
+            case 2:
+                SFXSource.PlayOneShot(playerBuy3);
+                break;
+            default:
+                break;
+        }
 
+        if (BuyPlayerSwitch == 2)
+        {
+            BuyPlayerSwitch = 0;
+        }
     }
 
+    #endregion
+
+    #region ZombieSounds
+    public void PlayZombieDamageSFX()
+    {
+        switch (Random.Range(0,4))
+        {
+            case 0:
+                SFXSource.PlayOneShot(ZombieAttack1);
+                break;
+            case 1:
+                SFXSource.PlayOneShot(ZombieAttack2);
+                break;
+            case 2:
+                SFXSource.PlayOneShot(ZombieAttack3);
+                break;
+            case 3:
+                SFXSource.PlayOneShot(ZombieAttack4);
+                break;
+            default:
+                break;
+        }
+    }
+
+    public void PlayZombieGetDamageSFX()
+    {
+        switch (Random.Range(0, 4))
+        {
+            case 0:
+                SFXSource.PlayOneShot(Zombiedamage1);
+                break;
+            case 1:
+                SFXSource.PlayOneShot(Zombiedamage2);
+                break;
+            case 2:
+                SFXSource.PlayOneShot(Zombiedamage3);
+                break;
+            case 3:
+                SFXSource.PlayOneShot(Zombiedamage4);
+                break;
+            default:
+                break;
+        }
+    }
+
+    public void PlayZombieDieSFX()
+    {
+        switch (Random.Range(0, 4))
+        {
+            case 0:
+                SFXSource.PlayOneShot(ZombieDeath1);
+                break;
+            case 1:
+                SFXSource.PlayOneShot(ZombieDeath2);
+                break;
+            case 2:
+                SFXSource.PlayOneShot(ZombieDeath3);
+                break;
+            case 3:
+                SFXSource.PlayOneShot(ZombieDeath4);
+                break;
+            default:
+                break;
+        }
+    }
     #endregion
 }

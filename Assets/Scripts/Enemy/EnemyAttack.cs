@@ -9,6 +9,8 @@ public class EnemyAttack : MonoBehaviour
     [SerializeField] private GameObject Enemy;
     [SerializeField] private GameObject Player;
     [SerializeField] private PlayerHealth playerHealth;
+    [SerializeField] private GameObject audiomanagergameonbject;
+    public AudioManager audioManager;
 
     [Header("Basic Info")]
     [SerializeField] private float damage;
@@ -20,6 +22,9 @@ public class EnemyAttack : MonoBehaviour
 
     private void Start()
     {
+        audiomanagergameonbject = GameObject.FindGameObjectWithTag("Audio");
+        audioManager = audiomanagergameonbject.GetComponent<AudioManager>();
+
         List<GameObject> PlayerObject = GameObject.FindGameObjectsWithTag("Player").ToList();
         Player = PlayerObject[0];
         playerHealth = Player.GetComponent<PlayerHealth>();
@@ -46,6 +51,7 @@ public class EnemyAttack : MonoBehaviour
         if (attackTimer >= attackDelayTimer)
         {
             playerHealth.PlayerTakeDamage(damage);
+            audioManager.PlayZombieDamageSFX();
             Debug.Log("attack");
             attackTimer = 0;
         }

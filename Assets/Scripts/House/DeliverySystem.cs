@@ -19,6 +19,8 @@ public class DeliverySystem : MonoBehaviour
 
     [SerializeField] private PacksManager pM;
 
+    public AudioManager audioManager;
+
     [Header("House Cold Down")]
 
     [SerializeField] private float maxHouseTimer = 5.0f;
@@ -75,6 +77,7 @@ public class DeliverySystem : MonoBehaviour
                     var rnd = Random.Range(25, 75);
                     cM.GetMoney(rnd);
                     Debug.Log("Paquete Entregado");
+                audioManager.PlaySFX(audioManager.playerDelivery);
                 //}
                 //else
                 //    warningImage.SetActive(false);

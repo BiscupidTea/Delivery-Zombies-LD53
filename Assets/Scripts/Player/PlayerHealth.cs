@@ -6,6 +6,7 @@ public class PlayerHealth : MonoBehaviour
 {
     [Header("References")]
     [SerializeField] private PlayerHud playerHud;
+    public AudioManager audioManager;
 
     [Header("Basic Info")]
     public float maxHealth;
@@ -38,6 +39,7 @@ public class PlayerHealth : MonoBehaviour
 
     public void PlayerTakeDamage(float damage)
     {
+        audioManager.PlaySFX(audioManager.playerDamage);
         health -= damage;
         playerHud.slider.value -= damage;
         if (health <= 0)
