@@ -80,7 +80,7 @@ public class AudioManager : MonoBehaviour
     public void PlayShootgunSFX()
     {
         fireBuletShootgun++;
-        switch (fireBuletPistol)
+        switch (fireBuletShootgun)
         {
             case 0:
                 SFXSource.PlayOneShot(shootgunShoot1);

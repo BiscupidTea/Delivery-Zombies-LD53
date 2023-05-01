@@ -15,8 +15,6 @@ MonoBehaviour:
   title: Assualt Rifle
   description: Base Sniper Rifle Description
   basePrice: 150
-  lastPrice: 150
-  currentPrice: 150
   bought: 0
   upgradable: 0
   maxUpgrades: 0

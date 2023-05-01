@@ -9,6 +9,7 @@ TagManager:
   - Bullet
   - PlayerLife
   - Spawn
+  - Audio
   layers:
   - Default
   - TransparentFX
