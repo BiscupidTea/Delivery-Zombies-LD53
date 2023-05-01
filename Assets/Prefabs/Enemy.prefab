@@ -103,8 +103,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Enemy: {fileID: 7709146985663780009}
   Player: {fileID: 0}
-  detectionRadius: 6
-  followRadius: 13
+  detectionRadius: 12.2
+  followRadius: 22.9
   speed: 3
 --- !u!114 &7754777926546741209
 MonoBehaviour:

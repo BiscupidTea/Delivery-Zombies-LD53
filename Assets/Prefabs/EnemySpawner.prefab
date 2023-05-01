@@ -99,7 +99,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemy: {fileID: 4426033733710429145, guid: be2d34a2e1f36874791639b26f611bf0, type: 3}
   spawnPosition: {fileID: 1808520183168047480}
-  SpawnRadius: 4
+  SpawnRadius: 4.48
+  zombieTextures: []
   WaveTimer: 5
   ZombiesXWave: 5
   maxZombiesSpawn: 5
