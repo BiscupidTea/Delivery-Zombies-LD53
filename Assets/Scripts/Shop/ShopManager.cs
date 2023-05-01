@@ -15,6 +15,8 @@ public class ShopManager : MonoBehaviour
     public ShopTemplate[] shopPanels;
     public Button[] myPurchaseButtons;
 
+    public AudioManager audioManager;
+
     private void Start()
     {
 
@@ -52,7 +54,7 @@ public class ShopManager : MonoBehaviour
     {
         if (!shopItemsSO[buttonNumber].bought)
         {
-
+            audioManager.PlayPlayerBuySFX();
             coinManager.actualsCoins -= shopItemsSO[buttonNumber].basePrice;
             if (coinManager.actualsCoins <= 0)
             {
