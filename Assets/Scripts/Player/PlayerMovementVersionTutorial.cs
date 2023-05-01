@@ -16,11 +16,6 @@ public class PlayerMovementVersionTutorial : MonoBehaviour
     Vector2 movement;
     Vector2 mousePos;
 
-    private void Awake()
-    {
-        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
-    }
-
     // Update is called once per frame
     void Update()
     {

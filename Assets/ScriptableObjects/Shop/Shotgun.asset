@@ -16,8 +16,8 @@ MonoBehaviour:
   description: Base Shotgun Description
   basePrice: 100
   lastPrice: 100
-  currentPrice: 100
-  bought: 0
+  currentPrice: 200
+  bought: 1
   upgradable: 0
   maxUpgrades: 0
   timesUpgraded: 0

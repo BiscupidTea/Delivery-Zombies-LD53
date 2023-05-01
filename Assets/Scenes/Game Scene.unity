@@ -4524,7 +4524,7 @@ MonoBehaviour:
   - {fileID: 1209294776}
   player: {fileID: 1912149018}
   bulletForce: 20
-  audioManager: {fileID: 0}
+  audioManager: {fileID: 903721149}
 --- !u!1 &694463112
 GameObject:
   m_ObjectHideFlags: 0
@@ -7319,7 +7319,7 @@ MonoBehaviour:
   firePivot: []
   player: {fileID: 1912149018}
   bulletForce: 20
-  audioManager: {fileID: 0}
+  audioManager: {fileID: 903721149}
 --- !u!1 &1169538579
 GameObject:
   m_ObjectHideFlags: 0
@@ -12767,7 +12767,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coinManager: {fileID: 1912149024}
-  playerHealth: {fileID: 0}
+  playerHealth: {fileID: 1912149030}
   coinsUI: {fileID: 843732180}
   shopItemsSO:
   - {fileID: 11400000, guid: c59ab536982929544956e885ffa46c6f, type: 2}
@@ -15844,7 +15844,7 @@ MonoBehaviour:
   firePivot: []
   player: {fileID: 1912149018}
   bulletForce: 20
-  audioManager: {fileID: 0}
+  audioManager: {fileID: 903721149}
 --- !u!1001 &1808520182887742564
 PrefabInstance:
   m_ObjectHideFlags: 0
