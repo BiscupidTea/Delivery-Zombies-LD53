@@ -13626,7 +13626,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c573d7f0829895f44904bba25e2fc664, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actualsCoins: 10
+  actualsCoins: 1200
 --- !u!114 &1912149025
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15755,7 +15755,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5476471285148838493, guid: 6f6a8acfa38f1074097513f19974550c, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_IntArgument
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5476471285148838493, guid: 6f6a8acfa38f1074097513f19974550c, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
