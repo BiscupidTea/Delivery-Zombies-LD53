@@ -68,18 +68,22 @@ public class InputManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             weaponNumber = 1;
+            Debug.Log("ChangeWeapon");
+
             return weaponNumber;
         }
 
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
             weaponNumber = 2;
+            Debug.Log("ChangeWeapon");
             return weaponNumber;
         }
 
         if (Input.GetKeyDown(KeyCode.Alpha3))
         {
             weaponNumber = 3;
+            Debug.Log("ChangeWeapon");
             return weaponNumber;
         }
 
