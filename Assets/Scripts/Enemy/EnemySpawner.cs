@@ -9,6 +9,8 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private Transform spawnPosition;
     [SerializeField] private float SpawnRadius;
 
+    [SerializeField] private Sprite[] zombieTextures;
+
     [SerializeField] private float WaveTimer;
     [SerializeField] private int ZombiesXWave;
 
@@ -19,6 +21,8 @@ public class EnemySpawner : MonoBehaviour
     private bool canSpawn = true;
 
     private float nextWaveTime;
+
+    int rndSprite;
 
     private void Start()
     {
@@ -45,10 +49,15 @@ public class EnemySpawner : MonoBehaviour
             {
                 for (int i = 0; i < ZombiesXWave; i++)
                 {
+                    rndSprite = Random.Range(0, zombieTextures.Length - 1);
+                    enemy.GetComponentInChildren<SpriteRenderer>().sprite = zombieTextures[rndSprite];
+
                     zombiesSpawn++;
                     float xZoneSpawn = (Random.Range(spawnPosition.position.x + -SpawnRadius, spawnPosition.position.x + SpawnRadius));
                     float YZoneSpawn = (Random.Range(spawnPosition.position.x + -SpawnRadius, spawnPosition.position.x + SpawnRadius));
                     Instantiate(enemy, new Vector2(xZoneSpawn, YZoneSpawn), Quaternion.identity);
+
+                    
                 }
 
                 nextWaveTime = 0;

@@ -16356,6 +16356,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemySpawner
       objectReference: {fileID: 0}
+    - target: {fileID: 1808520183168047486, guid: adc9479c964123740a35794a85f243cf, type: 3}
+      propertyPath: zombieTextures.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1808520183168047486, guid: adc9479c964123740a35794a85f243cf, type: 3}
+      propertyPath: zombieTextures.Array.data[0]
+      value: 
+      objectReference: {fileID: 21300000, guid: e2334d2dab4cc3543b483ed857b37b3e, type: 3}
+    - target: {fileID: 1808520183168047486, guid: adc9479c964123740a35794a85f243cf, type: 3}
+      propertyPath: zombieTextures.Array.data[1]
+      value: 
+      objectReference: {fileID: 21300000, guid: 4010421878bf25a4e905f4e01ea51407, type: 3}
+    - target: {fileID: 1808520183168047486, guid: adc9479c964123740a35794a85f243cf, type: 3}
+      propertyPath: zombieTextures.Array.data[2]
+      value: 
+      objectReference: {fileID: 21300000, guid: 14acf957279597242881857c5cc14bdd, type: 3}
+    - target: {fileID: 1808520183168047486, guid: adc9479c964123740a35794a85f243cf, type: 3}
+      propertyPath: zombieTextures.Array.data[3]
+      value: 
+      objectReference: {fileID: 21300000, guid: ff8eb1470b3b93547bc5c1260a25d453, type: 3}
+    - target: {fileID: 1808520183168047486, guid: adc9479c964123740a35794a85f243cf, type: 3}
+      propertyPath: zombieTextures.Array.data[4]
+      value: 
+      objectReference: {fileID: 21300000, guid: ff8eb1470b3b93547bc5c1260a25d453, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: adc9479c964123740a35794a85f243cf, type: 3}
 --- !u!1001 &2742343654004457748
